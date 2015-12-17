@@ -3,7 +3,14 @@ public class Movie {
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
 
+    /**
+     * 名稱
+     */
     private String _title;
+
+    /**
+     * 價格(代號)
+     */
     private int _priceCode;
 
     public Movie(String title, int priceCode) {
