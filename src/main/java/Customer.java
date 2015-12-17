@@ -21,7 +21,6 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0; //  總消費金額
         int frequentRenterPoints = 0;   //  常客積點
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
@@ -33,13 +32,24 @@ public class Customer {
             // show figures for this rental (顯示此筆租借資料)
             result += "\t" + each.getMovie().getTitle() + "\t" +
                     String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
         }
 
         // add footer lines (結尾列印)
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) +
                 " frequent renter points";
         return result;
+    }
+
+    protected double getTotalAmount(){
+        double totalAmount = 0; //  總消費金額
+        Enumeration rentals = _rentals.elements();
+
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();// 取得一筆租借記錄
+            totalAmount += each.getCharge();
+        }
+
+        return totalAmount;
     }
 }
