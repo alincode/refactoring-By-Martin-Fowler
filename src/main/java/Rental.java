@@ -19,7 +19,7 @@ public class Rental {
         return _movie;
     }
 
-    protected double amountFor() {
+    protected double getCharge() {
         double result = 0;
         switch (getMovie().getPriceCode()) {// 取得影片出租價格
             case Movie.REGULAR:// 普通片
