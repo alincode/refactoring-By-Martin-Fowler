@@ -5,9 +5,7 @@ public class Customer {
 
     private String _name;
 
-    /**
-     * 租借記錄
-     */
+    //  租借記錄
     private Vector _rentals = new Vector();
 
     public Customer(String name) {

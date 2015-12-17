@@ -1,13 +1,9 @@
 public class Rental {
 
-    /**
-     * 影片
-     */
+    //  影片
     private Movie _movie;
 
-    /**
-     * 租期
-     */
+    //  租期
     private int _daysRented;
 
     public Rental(Movie movie, int daysRented) {
