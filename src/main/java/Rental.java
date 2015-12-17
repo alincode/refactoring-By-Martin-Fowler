@@ -1,7 +1,7 @@
 public class Rental {
 
     //  影片
-    private Movie _movie;
+    Movie _movie;
 
     //  租期
     private int _daysRented;
@@ -19,28 +19,6 @@ public class Rental {
         return _movie;
     }
 
-    protected double getCharge() {
-        double result = 0;
-        switch (getMovie().getPriceCode()) {// 取得影片出租價格
-            case Movie.REGULAR:// 普通片
-                result += 2;
-                if (getDaysRented() > 2)
-                    result += (getDaysRented() - 2) * 1.5;
-                break;
-
-            case Movie.NEW_RELEASE:// 新片
-                result += getDaysRented() * 3;
-                break;
-
-            case Movie.CHILDRENS:// 兒童片
-                result += 1.5;
-                if (getDaysRented() > 3)
-                    result += (getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return result;
-    }
-
     //  累加 常客積點
     protected int getFrequentRenterPoints() {
         // add bonus for a two day new release rental
@@ -48,5 +26,9 @@ public class Rental {
                 getDaysRented() > 1)
             return 2;
         return 1;
+    }
+
+    protected double getCharge() {
+        return _movie.getCharge(_daysRented);
     }
 }
