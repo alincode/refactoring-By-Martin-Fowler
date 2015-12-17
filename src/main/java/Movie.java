@@ -9,6 +9,8 @@ public class Movie {
     //  價格(代號)
     private int _priceCode;
 
+    private Price _price;
+
     public Movie(String title, int priceCode) {
         _title = title;
         setPriceCode(priceCode);
@@ -20,6 +22,19 @@ public class Movie {
 
     public void setPriceCode(int arg) {
         _priceCode = arg;
+        switch (arg){
+            case REGULAR:   // 普通片
+                _price = new RegularPrice();
+                break;
+            case NEW_RELEASE:   // 兒童片
+                _price = new NewReleasePrice();
+                break;
+            case CHILDRENS: // 新片
+                _price = new ChildrensPrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorrect Price Code");
+        }
     }
 
     public String getTitle() {
