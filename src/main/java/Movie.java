@@ -9,7 +9,7 @@ public class Movie {
     //  價格(代號)
     private int _priceCode;
 
-    private Price _price;
+    Price _price;
 
     public Movie(String title, int priceCode) {
         _title = title;
@@ -39,29 +39,6 @@ public class Movie {
 
     public String getTitle() {
         return _title;
-    }
-
-    protected double getCharge(int daysRented) {
-        double result = 0;
-
-        switch (getPriceCode()) {// 取得影片出租價格
-            case REGULAR:// 普通片
-                result += 2;
-                if (daysRented > 2)
-                    result += (daysRented - 2) * 1.5;
-                break;
-
-            case NEW_RELEASE:// 新片
-                result += daysRented * 3;
-                break;
-
-            case CHILDRENS:// 兒童片
-                result += 1.5;
-                if (daysRented > 3)
-                    result += (daysRented - 3) * 1.5;
-                break;
-        }
-        return result;
     }
 
     //  累加 常客積點
