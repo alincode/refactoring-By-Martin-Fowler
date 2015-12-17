@@ -39,7 +39,7 @@ public class Customer {
         return result;
     }
 
-    double getTotalAmount(){
+    private double getTotalAmount(){
         double totalAmount = 0; //  總消費金額
         Enumeration rentals = _rentals.elements();
 
@@ -52,7 +52,7 @@ public class Customer {
     }
 
     //  常客積點
-    int getFrequentRenterPoints(){
+    private int getFrequentRenterPoints(){
         int frequentRenterPoints = 0;
         Enumeration rentals = _rentals.elements();
 
