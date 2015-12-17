@@ -39,6 +39,26 @@ public class Customer {
         return result;
     }
 
+    public String htmlStatement() {
+        Enumeration rentals = _rentals.elements();
+        String result = "Rental Record for " + getName() + "<BR>\n";
+
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();// 取得一筆租借記錄
+
+            // show figures for this rental (顯示此筆租借資料)
+            result += "\t" + each.getMovie().getTitle() + "\t" +
+                    String.valueOf(each.getCharge()) + "<BR>\n";
+        }
+
+        // add footer lines (結尾列印)
+        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
+        result += "You earned " + String.valueOf(getFrequentRenterPoints()) +
+                " frequent renter points";
+        return result;
+    }
+
+
     //  總消費金額
     private double getTotalAmount(){
         double result = 0;

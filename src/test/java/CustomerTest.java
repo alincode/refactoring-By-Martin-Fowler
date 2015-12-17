@@ -57,4 +57,9 @@ public class CustomerTest {
     public void testStatement4() throws Exception {
         System.out.println(c4.statement());
     }
+
+    @Test
+    public void testStatementHtml() throws Exception {
+        System.out.println(c1.htmlStatement());
+    }
 }
