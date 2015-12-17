@@ -4,7 +4,7 @@ public abstract class Price {
     abstract int getPriceCode();
 
     //  取得影片出租價格
-    protected double getCharge(int daysRented, Movie movie) {
+    protected double getCharge(int daysRented) {
         double result = 0;
 
         switch (getPriceCode()) {

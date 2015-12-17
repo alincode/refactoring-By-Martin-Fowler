@@ -29,7 +29,7 @@ public class Customer {
 
             // show figures for this rental (顯示此筆租借資料)
             result += "\t" + each.getMovie().getTitle() + "\t" +
-                    String.valueOf(each.getCharge()) + "\n";
+                    String.valueOf(each._movie.getCharge(each)) + "\n";
         }
 
         // add footer lines (結尾列印)
@@ -48,7 +48,7 @@ public class Customer {
 
             // show figures for this rental (顯示此筆租借資料)
             result += "\t" + each.getMovie().getTitle() + "\t" +
-                    String.valueOf(each.getCharge()) + "<BR>\n";
+                    String.valueOf(each._movie.getCharge(each)) + "<BR>\n";
         }
 
         // add footer lines (結尾列印)
@@ -66,7 +66,7 @@ public class Customer {
 
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();// 取得一筆租借記錄
-            result += each.getCharge();
+            result += each._movie.getCharge(each);
         }
 
         return result;
