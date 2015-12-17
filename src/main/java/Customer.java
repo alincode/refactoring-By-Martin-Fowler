@@ -39,28 +39,29 @@ public class Customer {
         return result;
     }
 
+    //  總消費金額
     private double getTotalAmount(){
-        double totalAmount = 0; //  總消費金額
+        double result = 0;
         Enumeration rentals = _rentals.elements();
 
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();// 取得一筆租借記錄
-            totalAmount += each.getCharge();
+            result += each.getCharge();
         }
 
-        return totalAmount;
+        return result;
     }
 
     //  常客積點
     private int getFrequentRenterPoints(){
-        int frequentRenterPoints = 0;
+        int result = 0;
         Enumeration rentals = _rentals.elements();
 
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();// 取得一筆租借記錄
-            frequentRenterPoints += each.getFrequentRenterPoints();
+            result += each.getFrequentRenterPoints();
         }
 
-        return frequentRenterPoints;
+        return result;
     }
 }
