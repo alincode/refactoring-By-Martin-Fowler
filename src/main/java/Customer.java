@@ -27,11 +27,7 @@ public class Customer {
         String result = "Rental Record for " + getName() + "\n";
 
         while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();// 取得一筆租借記錄
-
-            //determine amounts for each line
-            thisAmount = each.getCharge();
 
             // add frequent renter points (累加 常客積點)
             frequentRenterPoints++;
@@ -42,8 +38,8 @@ public class Customer {
 
             // show figures for this rental (顯示此筆租借資料)
             result += "\t" + each.getMovie().getTitle() + "\t" +
-                    String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+                    String.valueOf(each.getCharge()) + "\n";
+            totalAmount += each.getCharge();
         }
 
         // add footer lines (結尾列印)
