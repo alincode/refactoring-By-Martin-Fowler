@@ -40,4 +40,13 @@ public class Rental {
         }
         return result;
     }
+
+    //  累加 常客積點
+    protected int getFrequentRenterPoints() {
+        // add bonus for a two day new release rental
+        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
+                getDaysRented() > 1)
+            return 2;
+        return 1;
+    }
 }
